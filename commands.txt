@@ -1,3 +1,23 @@
-# Use zsh
+# CHANGE TO ZSH
 chsh -s $(which zsh)
+
+# USE oh-my-zsh
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+
+#INSTALL DOT FILES
+cd ~
+git clone https://github.com/osjayaprakash/dotfiles/
+echo '' >> ~/.zshrc
+echo 'source $HOME/dotfiles/zshrc' >> ~/.zshrc
+ 
+#SHORT CUTS
+C+a move to beginning of the line
+C+e move to end of the line
+C+u clear the line
+[up] backward search with prefix
+[down] forward search with prefix
+C+left backward by word
+C+right forward by word
+C+w delete the current word
+
 
