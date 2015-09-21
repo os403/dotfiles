@@ -1,0 +1,21 @@
+set nocompatible
+syntax on
+filetype plugin indent on
+set smartindent
+set ruler
+set number
+set cursorline
+set wildmenu
+set showmatch
+set foldenable
+
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+
+
+
+" use the system clipboard
+set clipboard=unnamed
+
