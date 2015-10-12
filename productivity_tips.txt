@@ -1,0 +1,20 @@
+
+
+
+** GMail Shortcuts
+
+u - refresh and inbox
+j and k - move next/previous conversation
+n and p  - move next/previous message in a conversation
+e - archive
+m - mute
+v - move
+l - label
+x - select
++/-/= - mark important
+# - delete
+z - undo
+shif + i / u - mark read/unread
+ctrl + . - move between chat windows
+
+** Chrome Shortcuts
