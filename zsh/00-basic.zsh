@@ -3,6 +3,8 @@
 autoload -Uz promptinit
 promptinit
 prompt fade white
+autoload -U colors && colors
+
 
 compinit
 
