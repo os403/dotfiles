@@ -1,12 +1,11 @@
 # Set up the prompt
+#
+#autoload -Uz promptinit
+#promptinit
+#prompt fade white
+#autoload -U colors && colors
 
-autoload -Uz promptinit
-promptinit
-prompt fade white
-autoload -U colors && colors
-
-
-compinit
+#compinit
 
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
@@ -51,7 +50,6 @@ bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
 export BITBUCKET=/jp/bb/
-source ${BITBUCKET}/settings/zshrc00
 NODE_NAME=`uname -n | tr '-' '_'`
 OS=`uname -o | tr '/' '_'`
 PDIR=${BITBUCKET}/settings/${NODE_NAME}/${OS}/ 
