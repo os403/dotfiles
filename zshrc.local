@@ -25,7 +25,7 @@ at="%{$fg_bold[white]%}@%{$reset_color%}"
 local host="%{$fg_bold[blue]%}$(hostname -s)%{$reset_color%}"
 # Compacted $PWD
 local pwd="%{$fg_bold[blue]%}%c%{$reset_color%}"
-PROMPT='[${time} ${at}${host}:${pwd} $(git_prompt_info)$(citc_prompt_info)]%{$reset_color%} '
+PROMPT='[${time} ${at}${host}:${pwd}]%{$reset_color%} '
 
 # i would prefer 1 icon that shows the "most drastic" deviation from HEAD,
 # but lets see how this works out
