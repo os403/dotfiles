@@ -1,7 +1,6 @@
 set nocompatible
 syntax on
 filetype plugin indent on
-set smartindent
 set ruler
 set number
 set cursorline
@@ -9,12 +8,18 @@ set wildmenu
 set showmatch
 set foldenable
 
+" tabs and indentationd
 set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
+set cindent
+set smartindent
+set pastetoggle=<f5>
 
-
+set ttyfast
+set mouse=a
+set ttymouse=xterm2
 
 " use the system clipboard
 set clipboard=unnamed
