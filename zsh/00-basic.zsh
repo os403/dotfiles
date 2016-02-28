@@ -29,8 +29,8 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 autoload      edit-command-line
 zle -N        edit-command-line
 bindkey '\ee' edit-command-line
-VISUAL='/usr/bin/vim'
-EDITOR='/usr/bin/vim'
+VISUAL='vim'
+EDITOR='vim'
 
 #### OTHERS
 COMPLETION_WAITING_DOTS="true"

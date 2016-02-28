@@ -1,22 +1,25 @@
-
 set rtp+=~/.vim/bundle/Vundle.vim
 call  vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'rhysd/vim-clang-format'
+Plugin 'kana/vim-operator-user'
+let g:solarized_termcolors=256
+let g:clang_format#code_style='llvm'
+let g:clang_format#command='clang-format-3.6'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-"let g:clang_user_options .= "-std=c++11 -stdlib=libc++"
-"let g:clang_user_options .="-I."
-"let g:clang_debug=1
 let g:ycm_filetype_whitelist = { 'cpp': 1, 'c': 1, 'python':1 }
 call  vundle#end()
 
+syntax on
+set background=dark
+colorscheme solarized
 
 set nocompatible
-syntax on
-filetype plugin indent on
+filetype indent on
 set ruler
 set number
 set cursorline
@@ -34,10 +37,19 @@ set cindent
 set smartindent
 set pastetoggle=<f5>
 
+" backspace
+set backspace=indent,eol,start
+
 set ttyfast
 set mouse=a
 set ttymouse=xterm2
 
 " use the system clipboard
 set clipboard=unnamed
+
+if has('persistent_undo')
+  set undofile
+  set undodir=$HOME/.vim/undo
+endif
+
 
