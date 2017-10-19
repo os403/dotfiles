@@ -23,10 +23,10 @@ chsh -s $(which zsh)
 
 # Tmux 
 sudo rm -rf ~/.tmux.conf
-ln -s $HOME/dotfiles/tmux.conf ~/.tmux.conf
+ln -s $HOME/dotfiles/tmux/tmux.conf ~/.tmux.conf
 ls ~/.tmux.conf
 
-# USE oh-my-zsh if it is not installed already
+# Install oh-my-zsh if it is not installed already
 test -e $HOME/.oh-my-zsh || wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 test -e $HOME/.oh-my-zsh
 
@@ -34,8 +34,8 @@ test -e $HOME/.oh-my-zsh
 test -e $HOME/dotfiles || git clone https://github.com/osjayaprakash/dotfiles/
 test -e $HOME/dotfiles
 # append the link to dotfiles zshrc
-tail -n 1 $HOME/.zshrc | grep dotfiles/zshrc || echo '\nsource $HOME/dotfiles/zshrc' >> ~/.zshrc
-tail -n 1 $HOME/.zshrc | grep dotfiles/zshrc
+tail -n 1 $HOME/.zshrc | grep dotfiles/zsh/zshrc || echo '\nsource $HOME/dotfiles/zsh/zshrc' >> ~/.zshrc
+tail -n 1 $HOME/.zshrc | grep dotfiles/zsh/zshrc
 # zsh_reload
 # source ~/.zshrc 
 
