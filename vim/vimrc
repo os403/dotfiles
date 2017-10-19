@@ -13,7 +13,6 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_key_list_select_completion = ['<Down>', '<C-N>']
 let g:ycm_confirm_extra_conf = 0
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_filetype_whitelist = { 'cpp': 1, 'c': 1, 'python':1 }
 
 " theme
@@ -22,6 +21,19 @@ let g:solarized_termcolors=256
 " clang format
 let g:clang_format#code_style='google'
 let g:clang_format#command='clang-format'
+
+" syntastic
+let g:syntastic_cc_checkers = ['clang-tidy']
+let g:syntastic_cpp_checkers = ['clang-tidy']
+let g:syntastic_python_checkers = ['pylint']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 call  vundle#end()
 
