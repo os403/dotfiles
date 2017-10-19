@@ -1,3 +1,6 @@
+
+# wget https://raw.githubusercontent.com/osjayaprakash/dotfiles/master/new_machine_setup.sh -O - | zsh
+
 set -ex
 
 # CHANGE to Home
@@ -18,18 +21,23 @@ git config --global credential.helper 'cache --timeout=86400' # store the passwo
 # CHANGE TO ZSH
 chsh -s $(which zsh)
 
-# USE oh-my-zsh
-wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-
-# INSTALL DOT FILES
-git clone https://github.com/osjayaprakash/dotfiles/
-echo '' >> ~/.zshrc # append empty line
-echo 'source $HOME/dotfiles/zshrc' >> ~/.zshrc  ## append the link to dotfiles zshrc
-source ~/.zshrc  #zsh_reload
-
 # Tmux 
 sudo rm -rf ~/.tmux.conf
-ln -s $HOME/dotfiles/.tmux.conf ~/.tmux.conf
+ln -s $HOME/dotfiles/tmux.conf ~/.tmux.conf
+ls ~/.tmux.conf
+
+# USE oh-my-zsh if it is not installed already
+test -e $HOME/.oh-my-zsh || wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+test -e $HOME/.oh-my-zsh
+
+# INSTALL DOT FILES ( Keep this for last)
+test -e $HOME/dotfiles || git clone https://github.com/osjayaprakash/dotfiles/
+test -e $HOME/dotfiles
+# append the link to dotfiles zshrc
+tail -n 1 $HOME/.zshrc | grep dotfiles/zshrc || echo '\nsource $HOME/dotfiles/zshrc' >> ~/.zshrc
+tail -n 1 $HOME/.zshrc | grep dotfiles/zshrc
+# zsh_reload
+# source ~/.zshrc 
 
 # Move to last working directory.
 cd $OLD_PWD
