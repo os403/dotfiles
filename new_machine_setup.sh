@@ -1,6 +1,7 @@
 set -ex
 
-# CHANGE to HOMe
+# CHANGE to Home
+OLD_PWD=$PWD
 cd ~
 
 sudo apt-get install zsh vim tmux git
@@ -29,3 +30,6 @@ source ~/.zshrc  #zsh_reload
 # Tmux 
 sudo rm -rf ~/.tmux.conf
 ln -s $HOME/dotfiles/.tmux.conf ~/.tmux.conf
+
+# Move to last working directory.
+cd $OLD_PWD
