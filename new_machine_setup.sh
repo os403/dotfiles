@@ -7,15 +7,12 @@ set -ex
 OLD_PWD=$PWD
 cd ~
 
-#
-INSTALL_CMD=sudo apt-get install --yes
-
 # Essentials
-$INSTALL_CMD zsh vim tmux git 
+sudo apt-get --yes install zsh vim tmux git 
 # For YCM plugin and development
-$INSTALL_CMD build-essential python python-dev g++ clang 
+sudo apt-get --yes install build-essential python python-dev g++ clang 
 # For YCM plugin and development
-$INSTALL_CMD clang-format clang-tidy pylint
+sudo apt-get --yes install clang-format clang-tidy pylint
 which zsh
 which vim 
 which tmux
