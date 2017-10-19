@@ -11,7 +11,7 @@ cd ~
 INSTALL_CMD=sudo apt-get install --yes
 
 # Essentials
-$INSTALL_CMD zsh vim-gtk tmux git 
+$INSTALL_CMD zsh vim tmux git 
 # For YCM plugin and development
 $INSTALL_CMD build-essential python python-dev g++ clang 
 # For YCM plugin and development
