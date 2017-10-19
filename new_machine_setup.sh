@@ -1,3 +1,6 @@
+
+# wget https://raw.githubusercontent.com/osjayaprakash/dotfiles/master/new_machine_setup.sh -O - | zsh
+
 set -ex
 
 # CHANGE to Home
@@ -18,8 +21,8 @@ git config --global credential.helper 'cache --timeout=86400' # store the passwo
 # CHANGE TO ZSH
 chsh -s $(which zsh)
 
-# USE oh-my-zsh
-wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+# USE oh-my-zsh if it is not installed already
+test -e $HOME/.oh-my-zsh || wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 
 # INSTALL DOT FILES
 git clone https://github.com/osjayaprakash/dotfiles/
