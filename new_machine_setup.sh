@@ -37,12 +37,12 @@ tail -n 1 $HOME/.zshrc | grep dotfiles/zsh/zshrc || echo '\nsource $HOME/dotfile
 tail -n 1 $HOME/.zshrc | grep dotfiles/zsh/zshrc
 
 # TMUX
-sudo rm -f ~/.tmux.conf
+mv --backup=numbered ~/.tmux.conf ~/.tmux.conf.backup
 ln -s $HOME/dotfiles/tmux/tmux.conf ~/.tmux.conf
 ls ~/.tmux.conf
 
 # VIM
-sudo rm -f ~/.vimrc
+mv --backup=numbered ~/.vimrc ~/.vimrc.backup
 ln -s $HOME/dotfiles/vim/vimrc ~/.vimrc
 # Install vundle
 test -e ~/.vim/bundle/Vundle.vim || git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
