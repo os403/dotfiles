@@ -23,7 +23,7 @@ chsh -s $(which zsh)
 
 # Tmux 
 sudo rm -rf ~/.tmux.conf
-ln -s $HOME/dotfiles/.tmux.conf ~/.tmux.conf
+ln -s $HOME/dotfiles/tmux.conf ~/.tmux.conf
 
 # USE oh-my-zsh if it is not installed already
 test -e $HOME/.oh-my-zsh || wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
