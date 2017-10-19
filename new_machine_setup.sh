@@ -10,7 +10,9 @@ cd ~
 # Essentials
 sudo apt-get install zsh vim-gtk tmux git 
 # For YCM plugin and development
-sudo apt-get install build-essential python python-dev g++ clang clang-format
+sudo apt-get install build-essential python python-dev g++ clang 
+# For YCM plugin and development
+sudo apt-get install clang-format clang-tidy pylint
 which zsh
 which vim 
 which tmux
