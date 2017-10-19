@@ -21,19 +21,19 @@ git config --global credential.helper 'cache --timeout=86400' # store the passwo
 # CHANGE TO ZSH
 chsh -s $(which zsh)
 
+# Tmux 
+sudo rm -rf ~/.tmux.conf
+ln -s $HOME/dotfiles/.tmux.conf ~/.tmux.conf
+
 # USE oh-my-zsh if it is not installed already
 test -e $HOME/.oh-my-zsh || wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 
-# INSTALL DOT FILES
+# INSTALL DOT FILES ( Keep this for last)
 test -e $HOME/dotfiles || git clone https://github.com/osjayaprakash/dotfiles/
 # append the link to dotfiles zshrc
 tail -n 1 $HOME/.zshrc | grep dotfiles/zshrc || echo '\nsource $HOME/dotfiles/zshrc' >> ~/.zshrc  
 # zsh_reload
 source ~/.zshrc 
-
-# Tmux 
-sudo rm -rf ~/.tmux.conf
-ln -s $HOME/dotfiles/.tmux.conf ~/.tmux.conf
 
 # Move to last working directory.
 cd $OLD_PWD
