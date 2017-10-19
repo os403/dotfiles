@@ -7,11 +7,15 @@ set -ex
 OLD_PWD=$PWD
 cd ~
 
-sudo apt-get install zsh vim tmux git
+# Essentials
+sudo apt-get install zsh vim-gtk tmux git 
+# For YCM plugin and development
+sudo apt-get install python python-dev g++ clang build-essential
 which zsh
 which vim 
 which tmux
 which git
+which python
 
 # Git setting
 git config --global user.name osjayaprakash
