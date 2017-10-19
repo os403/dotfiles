@@ -1,7 +1,7 @@
 
 
 
-** GMail Shortcuts
+# GMail Shortcuts
 
 u - refresh and inbox
 j and k - move next/previous conversation
@@ -19,4 +19,4 @@ ctrl + . - move between chat windows
 http://www.sealyisd.com/UserFiles/Servers/Server_523555/File/Departments/Technology/Tiger%20Tech%20Tuesdays/Gmail%20Shortcuts.pdf
 
 
-** Chrome Shortcuts
+# Chrome Shortcuts
