@@ -1,40 +1,50 @@
-# all of our zsh files
-typeset -U config_files
-config_files=($HOME/dotfiles/**/*.zsh)
+## HISTORY
+HISTFILE=${HOME}/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
 
-# load the path files
-for file in ${(M)config_files:#*/path.zsh}
-do
-  source $file
-done
+setopt append_history
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt inc_append_history
+setopt share_history
+export HISTCONTROL=ignoredups:erasedups 
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+set show-all-if-ambiguous on
+set completion-ignore-case on
 
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
-do
-  source $file
-done
 
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+# EXIT CODE AT RIGHT
+return_code="%{$fg_bold[white]%}[%(?..%{$fg_bold[red]%}%?%{$fg_bold[white]%})]%{$reset_color%}"
+RPS1='${return_code}'
 
-# load every completion after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh}
-do
-  source $file
-done
 
-unset config_files
+# EDITOR
+autoload      edit-command-line
+zle -N        edit-command-line
+bindkey '\ee' edit-command-line
+VISUAL='vim'
+EDITOR='vim'
 
-# Stash your environment variables in ~/.localrc. This means they'll stay out
-# of your main dotfiles repository (which may be public, like this one), but
-# you'll have access to them in your scripts.
-if [[ -a $HOME/zshrc.local ]] then
-  source $HOME/zshrc.local
-else
-  source $HOME/dotfiles/zshrc.local
-fi
+#### OTHERS
 
-if [[ -a /jp/venv/app/bin/activate ]] then
-  source /jp/venv/app/bin/activate
-fi
+COMPLETION_WAITING_DOTS="true"
+
+# cd by .. or ... or ... or mv file ..../.
+alias '..'='cd ..'
+alias -g ...='../..'
+alias -g ..4='../../..'
+alias -g ..5='../../../..'
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
+
+## Pin any local zsh files.
+test -e ~/zshrc.local && source ~/zshrc.local
