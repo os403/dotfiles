@@ -25,10 +25,11 @@ chsh -s $(which zsh)
 test -e $HOME/.oh-my-zsh || wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 
 # INSTALL DOT FILES
-git clone https://github.com/osjayaprakash/dotfiles/
-echo '' >> ~/.zshrc # append empty line
-echo 'source $HOME/dotfiles/zshrc' >> ~/.zshrc  ## append the link to dotfiles zshrc
-source ~/.zshrc  #zsh_reload
+test -e $HOME/dotfiles || git clone https://github.com/osjayaprakash/dotfiles/
+# append the link to dotfiles zshrc
+tail -n 1 $HOME/.zshrc | grep dotfiles/zshrc || echo '\nsource $HOME/dotfiles/zshrc' >> ~/.zshrc  
+# zsh_reload
+source ~/.zshrc 
 
 # Tmux 
 sudo rm -rf ~/.tmux.conf
