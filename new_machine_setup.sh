@@ -21,11 +21,6 @@ git config --global credential.helper 'cache --timeout=86400' # store the passwo
 # CHANGE TO ZSH
 chsh -s $(which zsh)
 
-# Tmux 
-sudo rm -rf ~/.tmux.conf
-ln -s $HOME/dotfiles/tmux/tmux.conf ~/.tmux.conf
-ls ~/.tmux.conf
-
 # Install oh-my-zsh if it is not installed already
 test -e $HOME/.oh-my-zsh || wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 test -e $HOME/.oh-my-zsh
@@ -36,8 +31,22 @@ test -e $HOME/dotfiles
 # append the link to dotfiles zshrc
 tail -n 1 $HOME/.zshrc | grep dotfiles/zsh/zshrc || echo '\nsource $HOME/dotfiles/zsh/zshrc' >> ~/.zshrc
 tail -n 1 $HOME/.zshrc | grep dotfiles/zsh/zshrc
-# zsh_reload
-# source ~/.zshrc 
+
+# TMUX
+sudo rm -f ~/.tmux.conf
+ln -s $HOME/dotfiles/tmux/tmux.conf ~/.tmux.conf
+ls ~/.tmux.conf
+
+# VIM
+sudo rm -f ~/.vimrc
+ln -s $HOME/dotfiles/vim/vimrc ~/.vimrc
+# Install vundle
+test -e ~/.vim/bundle/Vundle.vim || git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# Install all plugins
+vim +PluginInstall +qall
 
 # Move to last working directory.
 cd $OLD_PWD
+
+# zsh_reload
+# source ~/.zshrc 
