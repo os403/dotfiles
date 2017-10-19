@@ -1,7 +1,7 @@
-# dotfiles
-Development setup for vim, tmux and zsh to work across machines all unix-based machines.
+# About
+Development setup for vim, tmux and zsh to work across all unix-based machines.
 
-# Install
+# Installation
 
 wget https://raw.githubusercontent.com/osjayaprakash/dotfiles/master/new_machine_setup.sh -O - | zsh
 
