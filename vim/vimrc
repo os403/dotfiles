@@ -2,24 +2,27 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call  vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
-
-Plugin 'scrooloose/syntastic'
-
-" you complete me settings
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'kana/vim-operator-user'
-let g:solarized_termcolors=256
-let g:clang_format#code_style='llvm'
-let g:clang_format#command='clang-format-3.6'
+Plugin 'scrooloose/syntastic'
+
+" you complete me settings
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_key_list_select_completion = ['<Down>', '<C-N>']
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-
 let g:ycm_filetype_whitelist = { 'cpp': 1, 'c': 1, 'python':1 }
+
+" theme
+let g:solarized_termcolors=256
+
+" clang format
+let g:clang_format#code_style='google'
+let g:clang_format#command='clang-format'
+
 call  vundle#end()
 
 syntax on
