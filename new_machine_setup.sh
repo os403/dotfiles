@@ -7,12 +7,15 @@ set -ex
 OLD_PWD=$PWD
 cd ~
 
+#
+INSTALL_CMD=sudo apt-get install --yes
+
 # Essentials
-sudo apt-get install zsh vim-gtk tmux git 
+$INSTALL_CMD zsh vim-gtk tmux git 
 # For YCM plugin and development
-sudo apt-get install build-essential python python-dev g++ clang 
+$INSTALL_CMD build-essential python python-dev g++ clang 
 # For YCM plugin and development
-sudo apt-get install clang-format clang-tidy pylint
+$INSTALL_CMD clang-format clang-tidy pylint
 which zsh
 which vim 
 which tmux
@@ -35,19 +38,19 @@ test -e $HOME/.oh-my-zsh
 test -e $HOME/dotfiles || git clone https://github.com/osjayaprakash/dotfiles/
 test -e $HOME/dotfiles
 # append the link to dotfiles zshrc
-tail -n 1 $HOME/.zshrc | grep dotfiles/zsh/zshrc || echo '\nsource $HOME/dotfiles/zsh/zshrc' >> ~/.zshrc
+tail -n 1 $HOME/.zshrc | grep dotfiles/zsh/zshrc || echo '\nsource $HOME/dotfiles/zsh/zshrc' >> $HOME/.zshrc
 tail -n 1 $HOME/.zshrc | grep dotfiles/zsh/zshrc
 
 # TMUX
-mv --backup=numbered ~/.tmux.conf ~/.tmux.conf.backup
-ln -s $HOME/dotfiles/tmux/tmux.conf ~/.tmux.conf
-ls ~/.tmux.conf
+mv --backup=numbered $HOME/.tmux.conf $HOME/.tmux.conf.backup
+ln -s $HOME/dotfiles/tmux/tmux.conf $HOME/.tmux.conf
+ls $HOME/.tmux.conf
 
 # VIM
-mv --backup=numbered ~/.vimrc ~/.vimrc.backup
-ln -s $HOME/dotfiles/vim/vimrc ~/.vimrc
+mv --backup=numbered ~/.vimrc $HOME/.vimrc.backup
+ln -s $HOME/dotfiles/vim/vimrc $HOME/.vimrc
 # Install vundle
-test -e ~/.vim/bundle/Vundle.vim || git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+test -e $HOME/.vim/bundle/Vundle.vim || git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 # Install all plugins
 vim +PluginInstall +qall
 
