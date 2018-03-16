@@ -19,6 +19,12 @@ cd $HOME
 git clone https://github.com/osjayaprakash/dotfiles
 ```
 
+* Update Git repo
+```shell
+cd $HOME/dotfiles
+git pull origin master
+```
+
 ## YCM server
 Compile the YCM-core by 
 ```shell
