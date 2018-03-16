@@ -8,18 +8,22 @@ Development setup for vim, tmux and zsh to work across all unix-based machines.
 
 # Installation
 
-* install zsh - sudo apt-get install zsh
-
+```shell
+install zsh - sudo apt-get install zsh
 wget https://raw.githubusercontent.com/osjayaprakash/dotfiles/master/new_machine_setup.sh -O - | zsh
+```
 
 * Clone Git repo
-
+```shell
 cd $HOME
 git clone https://github.com/osjayaprakash/dotfiles
+```
 
 ## YCM server
 Compile the YCM-core by 
+```shell
 * cd ~/.vim/bundle/YouCompleteMe 
 * ./install.py --clang-completer 
 * ./install.py --all
+```
 
