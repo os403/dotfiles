@@ -22,8 +22,8 @@ git clone https://github.com/osjayaprakash/dotfiles
 ## YCM server
 Compile the YCM-core by 
 ```shell
-* cd ~/.vim/bundle/YouCompleteMe 
-* ./install.py --clang-completer 
-* ./install.py --all
+cd ~/.vim/bundle/YouCompleteMe 
+./install.py --clang-completer 
+./install.py --all
 ```
 
