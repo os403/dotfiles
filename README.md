@@ -12,6 +12,11 @@ Development setup for vim, tmux and zsh to work across all unix-based machines.
 
 wget https://raw.githubusercontent.com/osjayaprakash/dotfiles/master/new_machine_setup.sh -O - | zsh
 
+* Clone Git repo
+
+cd $HOME
+git clone https://github.com/osjayaprakash/dotfiles
+
 ## YCM server
 Compile the YCM-core by 
 * cd ~/.vim/bundle/YouCompleteMe 
