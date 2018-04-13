@@ -9,6 +9,10 @@ cd ~
 
 # Essentials
 sudo apt-get --yes install zsh vim tmux git 
+
+#Lightweight GUI - Diff tool
+sudo apt-get --yes install meld 
+
 # For YCM plugin and development
 sudo apt-get --yes install build-essential python python-dev g++ clang 
 # For YCM plugin and development
