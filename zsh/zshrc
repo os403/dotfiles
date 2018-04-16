@@ -56,3 +56,7 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 
 ## Add local zsh setting if there is any
 test -e ~/zshrc.local && source ~/zshrc.local
+
+### Alias
+alias h=history
+alias g=grep
