@@ -1,3 +1,6 @@
+# Crontab doesn't set all env variables. We need to set the right display for crontab to run.
+export DISPLAY=:0
+
 THYME=$HOME/go/bin/thyme
 DIR=$HOME/Desktop/thyme/
 FILE_PREFIX=`date +%Y-%m-%d-%H`
