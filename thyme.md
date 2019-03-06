@@ -1,4 +1,4 @@
-Thyme is 
+Thyme is tool to monitor the productivity (which window is actively used throughout the day).
 
 ```shell
 # Install go language and git
@@ -14,7 +14,7 @@ $HOME/go/bin/thyme dep
 ## sudo apt-get install x11-utils xdotool wmctrl
 ```
 
-Verify the thyme works
+Verify the thyme works, this should print the json output.
 ```shell
 $HOME/go/bin/thyme track
 ```
@@ -22,5 +22,5 @@ $HOME/go/bin/thyme track
 Add the script to crontab, such that this script would run every minute.
 ```shell
 crontab -e 
-* * * * * $HOME/Desktop/thyme/thyme.sh
+* * * * * sh $HOME/Desktop/thyme/thyme.sh >> $HOME/Desktop/thyme/thyme.log 2>&1
 ```
