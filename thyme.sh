@@ -28,6 +28,8 @@ if [[ $JSON_PREFIX == *59 ]] ; then
   HOUR_PREFIX=`date +%Y-%m-%d-%H`
   # Concatenate all the minute level data into hourly data.
   cat ${OUTPUT_DIR}/${HOUR_PREFIX}-*.json >> ${OUTPUT_DIR}/${HOUR_PREFIX}.json 
+  # Remove minute level data after the merge.
+  rm -f ${OUTPUT_DIR}/${HOUR_PREFIX}-*.json
   # Generate html for this concatenated report.
   CONCAT_JSON=${OUTPUT_DIR}/${HOUR_PREFIX}.json
   HTML=${OUTPUT_DIR}/${HOUR_PREFIX}.html  
