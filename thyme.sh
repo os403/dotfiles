@@ -1,3 +1,9 @@
+# Add the following line after typing the command: crontab -e
+# * * * * * sh $HOME/dotfiles/thyme.sh >>$HOME/Desktop/Thyme/thyme.log 2>&1
+#
+# You can also verify the crontab file by, 
+# sudo cat /var/spool/cron/crontabs/jayaprakashs
+#
 # Crontab doesn't set all env variables. We need to set the right display for crontab to run.
 export DISPLAY=:0
 
