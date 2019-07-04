@@ -23,7 +23,7 @@ do
 done
 if 
 
-if [[ $JSON_PREFIX == *59 ]] ; then
+if [[ $MINUTE_PREFIX == *59 ]] ; then
   # Generate the html report for this hour.
   HOUR_PREFIX=`date +%Y-%m-%d-%H`
   # Concatenate all the minute level data into hourly data.
@@ -37,7 +37,7 @@ if [[ $JSON_PREFIX == *59 ]] ; then
   # Exit after a minute.
 fi
 
-if [[ $JSON_PREFIX == *59 ]] ; then
+if [[ $MINUTE_PREFIX == *59 ]] ; then
   MESSAGE=`python ~/dotfiles/time_notification.py`
   # Notification stays for 15 mins.
   notify-send 'Notification!' $MESSAGE -u critical -i face-worried -t 900000
