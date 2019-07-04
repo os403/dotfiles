@@ -11,10 +11,9 @@ ROOT_DIR=$HOME/Desktop/Thyme/
 THYME_BINARY=$HOME/go/bin/thyme
 
 DIR_PREFIX=`date +%Y/%m`
-FILE_PREFIX=`date +%Y-%m-%d-%H`
 OUTPUT_DIR=${ROOT_DIR}/${DIR_PREFIX}
-JSON=${OUTPUT_DIR}/${FILE_PREFIX}.json
-HTML=${OUTPUT_DIR}/${FILE_PREFIX}.html
+MINUTE_PREFIX=`date +%Y-%m-%d-%H-%M`
+JSON=${OUTPUT_DIR}/${MINUTE_PREFIX}.json
 # Create directory if it missing.
 mkdir -p ${OUTPUT_DIR}
 for run in {1..59}
@@ -22,6 +21,16 @@ do
   ${THYME_BINARY} track -o $JSON
   sleep 1s
 done
-# Write the report for this minute.
-${THYME_BINARY} show -i $JSON -w stats > $HTML
-# Exit after a minute.
+if 
+
+if [[ $JSON_PREFIX == *59 ]] ; then
+  # Generate the html report for this hour.
+  HOUR_PREFIX=`date +%Y-%m-%d-%H`
+  # Concatenate all the minute level data into hourly data.
+  cat ${OUTPUT_DIR}/${HOUR_PREFIX}-*.json >> ${OUTPUT_DIR}/${HOUR_PREFIX}.json 
+  # Generate html for this concatenated report.
+  CONCAT_JSON=${OUTPUT_DIR}/${HOUR_PREFIX}.json
+  HTML=${OUTPUT_DIR}/${HOUR_PREFIX}.html  
+  ${THYME_BINARY} show -i $CONCAT_JSON -w stats > $HTML
+  # Exit after a minute.
+fi
