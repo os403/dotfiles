@@ -1,18 +1,21 @@
 # Crontab doesn't set all env variables. We need to set the right display for crontab to run.
 export DISPLAY=:0
 
-THYME=$HOME/go/bin/thyme
-DIR=$HOME/Desktop/thyme/
+ROOT_DIR=$HOME/Desktop/Thyme/
+THYME_BINARY=$HOME/go/bin/thyme
+
+DIR_PREFIX=`date +%Y/%m`
 FILE_PREFIX=`date +%Y-%m-%d-%H`
-JSON=$DIR/${FILE_PREFIX}.json
-HTML=$DIR/${FILE_PREFIX}.html
+OUTPUT_DIR=${ROOT_DIR}/${DIR_PREFIX}
+JSON=${OUTPUT_DIR}/${FILE_PREFIX}.json
+HTML=${OUTPUT_DIR}/${FILE_PREFIX}.html
 # Create directory if it missing.
-mkdir -p $DIR
+mkdir -p ${OUTPUT_DIR}
 for run in {1..59}
 do
-  $THYME track -o $JSON
+  ${THYME_BINARY} track -o $JSON
   sleep 1s
 done
 # Write the report for this minute.
-$THYME show -i $JSON -w stats > $HTML
+${THYME_BINARY} show -i $JSON -w stats > $HTML
 # Exit after a minute.
