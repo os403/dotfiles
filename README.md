@@ -55,16 +55,11 @@ Verify the thyme works, this should print the json output.
 $HOME/go/bin/thyme track
 ```
 
-Download the thyme.sh from github.
-```shell
-mkdir -p $HOME/Desktop/thyme/ 
-wget -O $HOME/Desktop/thyme/thyme.sh https://raw.githubusercontent.com/osjayaprakash/dotfiles/master/thyme.sh
-```
-
 Add the script to crontab, such that this script would run every minute.
 ```shell
 crontab -e 
-* * * * * sh $HOME/Desktop/thyme/thyme.sh >> $HOME/Desktop/thyme/thyme.log 2>&1
+* * * * * sh $HOME/dotfiles/thyme.sh >> $HOME/Desktop/Thyme/thyme.log 2>&1
+@reboot sh $HOME/dotfiles/startup.sh &
 ```
 **NOTE** Add an empty line at the end of crontab configuration file.
 

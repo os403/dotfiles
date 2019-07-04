@@ -36,9 +36,3 @@ if [[ $MINUTE_PREFIX == *59 ]] ; then
   # Exit after a minute.
 fi
 
-if [[ $MINUTE_PREFIX == *59 ]] ; then
-  MESSAGE=`python ~/dotfiles/time_notification.py`
-  # Notification stays for 15 mins.
-  notify-send 'Notification!' "$MESSAGE" -i face-worried -t 900000
-fi
-
