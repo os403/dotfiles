@@ -20,8 +20,7 @@ for run in {1..59}
 do
   ${THYME_BINARY} track -o $JSON
   sleep 1s
-done
-if 
+done 
 
 if [[ $MINUTE_PREFIX == *59 ]] ; then
   # Generate the html report for this hour.
@@ -42,3 +41,4 @@ if [[ $MINUTE_PREFIX == *59 ]] ; then
   # Notification stays for 15 mins.
   notify-send 'Notification!' $MESSAGE -i face-worried -t 900000
 fi
+
