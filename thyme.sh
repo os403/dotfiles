@@ -36,3 +36,9 @@ if [[ $JSON_PREFIX == *59 ]] ; then
   ${THYME_BINARY} show -i $CONCAT_JSON -w stats > $HTML
   # Exit after a minute.
 fi
+
+if [[ $JSON_PREFIX == *59 ]] ; then
+  MESSAGE=`python ~/dotfiles/time_notification.py`
+  # Notification stays for 15 mins.
+  notify-send 'Notification!' $MESSAGE -u critical -i face-worried -t 900000
+fi
