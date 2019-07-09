@@ -4,6 +4,8 @@ import notify2
 import time
 locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')  # Customize
 
+INTERVAL_MINUTES = 60
+
 def GetMessage():
 	return_msg = []
 	# Life expectancy is 68 years
@@ -26,7 +28,7 @@ n = notify2.Notification("Notification",
                          "notification-message-im"   # Icon name
                         )
 n.set_urgency(notify2.URGENCY_CRITICAL)
-n.set_timeout(1000 * 60 * 15)
+n.set_timeout(1000 * 60 * INTERVAL_MINUTES)
 
 while True:
 	message = GetMessage()
@@ -35,5 +37,4 @@ while True:
 		"notification-message-im"   # Icon name
 		)
 	n.show()
-	# Sleep for 30 minutes
-	time.sleep(60*30)
+	time.sleep(60 * INTERVAL_MINUTES)
