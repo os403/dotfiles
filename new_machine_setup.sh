@@ -43,14 +43,14 @@ tail -n 1 $HOME/.zshrc | grep dotfiles/zsh/zshrc || echo '\nsource $HOME/dotfile
 tail -n 1 $HOME/.zshrc | grep dotfiles/zsh/zshrc
 
 # TMUX
-mv --backup=numbered $HOME/.tmux.conf $HOME/.tmux.conf.backup
+test -e $HOME/.tmux.conf && mv --backup=numbered $HOME/.tmux.conf $HOME/.tmux.conf.backup
 ln -s $HOME/dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 ls $HOME/.tmux.conf
 # Install Tmux Plugin manager
 test -e $HOME/.tmux/plugins/tpm || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # VIM
-mv --backup=numbered ~/.vimrc $HOME/.vimrc.backup
+test -e ~/.vimrc && mv --backup=numbered ~/.vimrc $HOME/.vimrc.backup
 ln -s $HOME/dotfiles/vim/vimrc $HOME/.vimrc
 # Install vundle
 test -e $HOME/.vim/bundle/Vundle.vim || git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
