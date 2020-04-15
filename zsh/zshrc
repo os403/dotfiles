@@ -4,6 +4,7 @@
 
 # ALIASES
 # Attaches or starts the new tmux session
+
 alias tm='tmux new-session -A -s work'
 
 ## HISTORY
@@ -60,3 +61,5 @@ test -e ~/zshrc.local && source ~/zshrc.local
 ### Alias
 alias h=history
 alias g=grep
+
+

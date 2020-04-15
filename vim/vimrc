@@ -1,78 +1,99 @@
-set rtp+=~/.vim/bundle/Vundle.vim
-call  vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'rhysd/vim-clang-format'
-Plugin 'kana/vim-operator-user'
-Plugin 'scrooloose/syntastic'
+" Configure Glug "
+source /usr/share/vim/google/google.vim
+source /usr/share/vim/google/glug/bootstrap.vim
 
-" you complete me settings
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let mapleader = ','
+
+Glug youcompleteme-google
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_use_vim_stdout = 1
+let g:ycm_server_log_level = 'debug'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_key_list_select_completion = ['<Down>', '<C-N>']
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_filetype_whitelist = { 'cpp': 1, 'c': 1, 'python':1 }
 
-" theme
-let g:solarized_termcolors=256
+Glug blaze plugin[mappings]='<leader>b'
+let g:blazevim_notify_after_blaze = 1
+Glug blazedeps
+Glug clang-format
+Glug whitespace
+Glug critique
+Glug g4
+Glug codefmt-google auto_filetypes+=blazebuild
+Glug syntastic-google
 
-" clang format
-let g:clang_format#code_style='google'
-let g:clang_format#command='clang-format'
+" autocmd FileType cpp AutoFormatBuffer clang-format
+" autocmd FileType bzl AutoFormatBuffer buildifier
 
-" syntastic
-let g:syntastic_cc_checkers = ['clang-tidy']
-let g:syntastic_cpp_checkers = ['clang-tidy']
-let g:syntastic_python_checkers = ['pylint']
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" Configure Vundle "
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+Plugin 'mhinz/vim-signify'
+let g:singify_vcs_list = ['git', 'perforce']
+let g:signify_vcs_cmds = {
+    \ 'perforce': 'p4 info >& /dev/null && env G4MULTIDIFF=0 P4DIFF=%d p4 diff -dU0 %f'
+    \ }
 
-call  vundle#end()
+"https://kien.github.io/ctrlp.vim/
+"https://github.com/ggreer/the_silver_searcher
+Plugin 'scrooloose/nerdtree'
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+nnoremap <C-g> :NERDTreeToggle<CR>
 
-syntax on
-set background=dark
-colorscheme solarized
+Plugin 'FelikZ/ctrlp-py-matcher'
+Plugin 'ctrlpvim/ctrlp.vim'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*blaze-bin*,
+let g:ctrlp_working_path_mode = 'rac'
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+let g:ctrlp_by_filename = 1
+let g:ctrlp_lazy_update = 250
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_max_files = 0
+call vundle#end()
 
 set nocompatible
-filetype indent on
+filetype plugin indent on
+syntax on
 set ruler
+set title
 set number
-set cursorline
-set wildmenu
 set showmatch
 set foldenable
+colorscheme desert        " set colorscheme
+set laststatus=2          " last window always has a statusline
+set nohlsearch            " Don't continue to highlight searched phrases.
+set incsearch             " But do highlight as you type your search.
+set ignorecase            " Make searches case-insensitive.
+set nowrap                " don't wrap text
 
-" tabs and indentationd
-set expandtab
-set smarttab
+set autoindent            " auto-indent
+set smartindent            " auto-indent
+
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-set cindent
-set smartindent
-set pastetoggle=<f5>
+set smarttab
+set expandtab
 
-" backspace
-set backspace=indent,eol,start
-
-set ttyfast
+set clipboard=unnamed
 set mouse=a
 set ttymouse=xterm2
 
-" use the system clipboard
-set clipboard=unnamed
+"highlight trailing whitespace in red
+highlight TrailingWhiteSpace ctermbg=red guibg=red
+call matchadd('TrailingWhiteSpace', '\s\+$')
 
+"Set persistent undo
 if has('persistent_undo')
   set undofile
   set undodir=$HOME/.vim/undo
 endif
 
+"Enable clang-format in Vim with ctrl+k
+noremap = :pyf /usr/lib/clang-format/clang-format.py<CR>
+inoremap <C-K> <C-O>:pyf /usr/lib/clang-format/clang-format.py<CR>
 
+nmap <C-e> :e#<CR>
