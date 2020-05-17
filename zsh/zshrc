@@ -4,9 +4,11 @@
 
 BASEDIR=$(dirname "$0")
 
-# GIT
+# GIT (https://www.atlassian.com/git/tutorials/saving-changes/gitignore)
 git config --global core.excludesfile ${BASEDIR}/gitignore_global
 #git config -l
+#git reset
+#git reset --hard
 
 # ALIASES
 # Attaches or starts the new tmux session
@@ -67,5 +69,3 @@ test -e ~/zshrc.local && source ~/zshrc.local
 ### Alias
 alias h=history
 alias g=grep
-
-

@@ -1,4 +1,5 @@
 
+
 # wget https://raw.githubusercontent.com/osjayaprakash/dotfiles/master/new_machine_setup.sh -O - | zsh
 
 set -ex
@@ -6,6 +7,15 @@ set -ex
 # CHANGE to Home
 OLD_PWD=$PWD
 cd ~
+
+# note for launcher
+# Linux Launcher
+# https://github.com/KELiON/cerebro
+# sudo apt-get install -y nodejs
+# Clipboard management
+# sudo apt-get --yes install copyq
+# Yarn package manager
+# sudo apt-get --yes install kupfer
 
 # Essentials
 sudo apt-get --yes install zsh vim tmux git 
@@ -48,6 +58,7 @@ ln -s $HOME/dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 ls $HOME/.tmux.conf
 # Install Tmux Plugin manager
 test -e $HOME/.tmux/plugins/tpm || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 
 # VIM
 #test -e ~/.vimrc && mv --backup=numbered ~/.vimrc $HOME/.vimrc.backup
