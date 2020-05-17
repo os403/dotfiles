@@ -50,12 +50,12 @@ ls $HOME/.tmux.conf
 test -e $HOME/.tmux/plugins/tpm || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # VIM
-test -e ~/.vimrc && mv --backup=numbered ~/.vimrc $HOME/.vimrc.backup
-ln -s $HOME/dotfiles/vim/vimrc $HOME/.vimrc
-# Install vundle
-test -e $HOME/.vim/bundle/Vundle.vim || git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
-# Install all plugins
-vim +PluginInstall +qall
+#test -e ~/.vimrc && mv --backup=numbered ~/.vimrc $HOME/.vimrc.backup
+#ln -s $HOME/dotfiles/vim/vimrc $HOME/.vimrc
+## Install vundle
+#test -e $HOME/.vim/bundle/Vundle.vim || git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+## Install all plugins
+#vim +PluginInstall +qall
 
 # Move to last working directory.
 cd $OLD_PWD

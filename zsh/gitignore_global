@@ -1,0 +1,6 @@
+/.gradle/
+/.idea/
+/build/
+/sg-cdb.iml
+/local.properties
+/.gitignore

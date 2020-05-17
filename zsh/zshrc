@@ -2,10 +2,16 @@
 # Precedence is 
 # oh-my-zsh < dotfiles/zsh/zshrc < ~/zshrc.local
 
+BASEDIR=$(dirname "$0")
+
+# GIT
+git config --global core.excludesfile ${BASEDIR}/gitignore_global
+#git config -l
+
 # ALIASES
 # Attaches or starts the new tmux session
-
 alias tm='tmux new-session -A -s work'
+
 
 ## HISTORY
 HISTFILE=${HOME}/.zsh_history
