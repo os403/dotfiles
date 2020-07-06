@@ -15,9 +15,6 @@
 
 export DISPLAY=:0
 
-# Send notification
-python $HOME/dotfiles/time_notification.py
-
 ROOT_DIR=$HOME/Desktop/Thyme/
 THYME_BINARY=$HOME/go/bin/thyme
 
@@ -27,6 +24,11 @@ HOUR_PREFIX=`date +%Y-%m-%d-%H`
 DAY_PREFIX=`date +%Y-%m-%d`
 MONTH_PREFIX=`date +%Y-%m`
 JSON=${OUTPUT_DIR}/${HOUR_PREFIX}.json
+
+if test -f "$JSON"; then
+  touch "${JSON}-already-exist-error"
+  exit
+fi
 
 # Create directory if it is missing.
 mkdir -p ${OUTPUT_DIR}
@@ -38,12 +40,18 @@ do
     ${THYME_BINARY} track -o ${OUTPUT_DIR}/${HOUR_PREFIX}.json
     ${THYME_BINARY} track -o ${OUTPUT_DIR}/${DAY_PREFIX}.json
     ${THYME_BINARY} track -o ${OUTPUT_DIR}/${MONTH_PREFIX}.json
+    slee 2s
+  else
+    break
   fi
-  sleep 2s
 done
 
 # Update stats
 ${THYME_BINARY} show -i ${OUTPUT_DIR}/${HOUR_PREFIX}.json -w stats > ${OUTPUT_DIR}/${HOUR_PREFIX}.html
 ${THYME_BINARY} show -i ${OUTPUT_DIR}/${DAY_PREFIX}.json -w stats > ${OUTPUT_DIR}/${DAY_PREFIX}.html
 ${THYME_BINARY} show -i ${OUTPUT_DIR}/${MONTH_PREFIX}.json -w stats > ${OUTPUT_DIR}/${MONTH_PREFIX}.html
+
+# Send notification
+python $HOME/dotfiles/time_notification.py
+
 
