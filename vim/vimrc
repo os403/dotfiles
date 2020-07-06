@@ -1,10 +1,10 @@
 " Configure Glug "
-source /usr/share/vim/google/google.vim
-source /usr/share/vim/google/glug/bootstrap.vim
+"source /usr/share/vim/google/google.vim
+"source /usr/share/vim/google/glug/bootstrap.vim
 
 let mapleader = ','
 
-Glug youcompleteme-google
+"Glug youcompleteme-google
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_use_vim_stdout = 1
 let g:ycm_server_log_level = 'debug'
@@ -12,15 +12,15 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_key_list_select_completion = ['<Down>', '<C-N>']
 
-Glug blaze plugin[mappings]='<leader>b'
+"Glug blaze plugin[mappings]='<leader>b'
 let g:blazevim_notify_after_blaze = 1
-Glug blazedeps
-Glug clang-format
-Glug whitespace
-Glug critique
-Glug g4
-Glug codefmt-google auto_filetypes+=blazebuild
-Glug syntastic-google
+"Glug blazedeps
+"Glug clang-format
+"Glug whitespace
+"Glug critique
+"Glug g4
+"Glug codefmt-google auto_filetypes+=blazebuild
+"Glug syntastic-google
 
 " autocmd FileType cpp AutoFormatBuffer clang-format
 " autocmd FileType bzl AutoFormatBuffer buildifier
