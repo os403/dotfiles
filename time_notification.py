@@ -30,11 +30,9 @@ n = notify2.Notification("Notification",
 n.set_urgency(notify2.URGENCY_CRITICAL)
 n.set_timeout(1000 * 60 * INTERVAL_MINUTES)
 
-while True:
-	message = GetMessage()
-	n.update("Notification",
-		message,
-		"notification-message-im"   # Icon name
-		)
-	n.show()
-	time.sleep(60 * INTERVAL_MINUTES)
+message = GetMessage()
+n.update("Notification",
+        message,
+        "notification-message-im"   # Icon name
+	)
+n.show()
