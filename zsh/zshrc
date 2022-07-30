@@ -75,3 +75,5 @@ alias g=grep
 virtualenv -p python3 $HOME/virtualenv/py3/
 source $HOME/virtualenv/py3/bin/activate
 
+### Change sh to zsh
+chsh -s /bin/zsh
