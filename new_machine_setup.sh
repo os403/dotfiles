@@ -1,6 +1,6 @@
 
 
-# wget https://raw.githubusercontent.com/osjayaprakash/dotfiles/master/new_machine_setup.sh -O - | zsh
+# wget https://raw.github.com/os403/dotfiles/master/new_machine_setup.sh -O - | zsh
 
 set -ex
 
@@ -34,7 +34,7 @@ which git
 which python
 
 # Git setting
-git config --global user.name osjayaprakash
+git config --global user.name os403
 git config --global user.email osjayaprakash@gmail.com
 git config --global credential.helper 'cache --timeout=86400' # store the password for one day
 
@@ -42,11 +42,11 @@ git config --global credential.helper 'cache --timeout=86400' # store the passwo
 sudo chsh -s $(which zsh)
 
 # Install oh-my-zsh if it is not installed already
-test -e $HOME/.oh-my-zsh || wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+test -e $HOME/.oh-my-zsh || wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | zsh
 test -e $HOME/.oh-my-zsh
 
 # INSTALL DOT FILES ( Keep this for last)
-test -e $HOME/dotfiles || git clone https://github.com/osjayaprakash/dotfiles/
+test -e $HOME/dotfiles || git clone https://github.com/os403/dotfiles/
 test -e $HOME/dotfiles
 # append the link to dotfiles zshrc
 tail -n 1 $HOME/.zshrc | grep dotfiles/zsh/zshrc || echo '\nsource $HOME/dotfiles/zsh/zshrc' >> $HOME/.zshrc
