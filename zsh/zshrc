@@ -69,3 +69,9 @@ test -e ~/zshrc.local && source ~/zshrc.local
 ### Alias
 alias h=history
 alias g=grep
+
+
+### Virtual env for python3
+virtualenv -p python3 $HOME/virtualenv/py3/
+source $HOME/virtualenv/py3/bin/activate
+
