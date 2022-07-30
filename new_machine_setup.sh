@@ -18,7 +18,12 @@ cd ~
 # sudo apt-get --yes install kupfer
 
 # Essentials
-sudo apt-get --yes install zsh vim tmux git 
+sudo apt-get --yes install zsh vim tmux git python3 python3-pip python3-virtualenv
+sudo python -m pip3 install --upgrade pip
+
+sudo apt-get --yes install hardinfo
+
+sudo apt-get --yes install wget curl
 
 #Lightweight GUI - Diff tool
 sudo apt-get --yes install meld 
